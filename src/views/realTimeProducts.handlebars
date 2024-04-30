@@ -1,0 +1,46 @@
+<main >
+  <header><h2>Agregar producto</h2></header>
+  <section class="containerForm">
+    <form class="containerForm formProduct" action="/realTimeProducts" method="post">
+      <label for="">Titulo: </label>
+      <input type="text" id="title" name="title" />
+      <label for="">Descripción: </label>
+      <input type="text" id="description" name="description" />
+      <label for="">Código del producto: </label>
+      <input type="text" id="code" name="code" />
+      <label for="">Precio: </label>
+      <input type="number" id="price" name="price" />
+      <label for="">Status (true o false): </label>
+      <input type="text" id="status" name="status" />
+      <label for="">Stock: </label>
+      <input type="number" id="stock" name="stock" />
+      <label for="">Categoría: </label>
+      <input type="text" id="category" name="category" />
+      <label for="">Imagen (url): </label>
+      <input type="url" id="thumbnail" name="thumbnail" />
+      <button type="submit">Cargar</button>
+      <button><a href="http://localhost:8080/home/">Inicio</a></button>
+    </form>
+  </section>
+                <section class="container" id="productList">
+
+                </section>
+
+
+  {{#if isAdded}}
+    {{#each producto}}
+<main class="containerAdded">
+<h3>El siguiente producto se cargado correctamente: </h3>
+<section>
+  <p>ID: {{this.id}}</p>
+  <p>Titulo: {{this.title}}</p>
+  <p>Descripción: {{this.description}}</p>
+  <p>Código: {{this.code}}</p>
+  <p>Precio: {{this.price}}</p>
+  <p>Status: {{this.status}}</p>
+  <p>Categoría: {{this.category}}</p>
+  <p>Imagen: {{this.thumbnail}}</p>
+</section>
+</main>
+  {{/each}}
+  {{/if}}
