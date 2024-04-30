@@ -1,5 +1,7 @@
-<main >
-  <header><h2>Agregar producto</h2></header>
+<main>
+  <header>
+    <h2>Agregar producto</h2>
+  </header>
   <section class="containerForm">
     <form class="containerForm formProduct" action="/realTimeProducts" method="post">
       <label for="">Titulo: </label>
@@ -22,25 +24,25 @@
       <button><a href="http://localhost:8080/home/">Inicio</a></button>
     </form>
   </section>
-                <section class="container" id="productList">
+  <section class="container" id="productList">
 
-                </section>
+  </section>
 
 
   {{#if isAdded}}
-    {{#each producto}}
-<main class="containerAdded">
-<h3>El siguiente producto se cargado correctamente: </h3>
-<section>
-  <p>ID: {{this.id}}</p>
-  <p>Titulo: {{this.title}}</p>
-  <p>Descripción: {{this.description}}</p>
-  <p>Código: {{this.code}}</p>
-  <p>Precio: {{this.price}}</p>
-  <p>Status: {{this.status}}</p>
-  <p>Categoría: {{this.category}}</p>
-  <p>Imagen: {{this.thumbnail}}</p>
-</section>
-</main>
+  {{#each producto}}
+  <main class="containerAdded">
+    <h3>El siguiente producto se cargado correctamente: </h3>
+    <section>
+      <p>ID: {{this.id}}</p>
+      <p>Titulo: {{this.title}}</p>
+      <p>Descripción: {{this.description}}</p>
+      <p>Código: {{this.code}}</p>
+      <p>Precio: {{this.price}}</p>
+      <p>Status: {{this.status}}</p>
+      <p>Categoría: {{this.category}}</p>
+      <p>Imagen: {{this.thumbnail}}</p>
+    </section>
+  </main>
   {{/each}}
   {{/if}}
