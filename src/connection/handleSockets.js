@@ -1,4 +1,3 @@
-import fs from "fs/promises";
 import { __dirname } from "../utils.js";
 
 import { ProductManager } from "../services/productManager.js";
@@ -10,7 +9,6 @@ export const socketConnection = (socketServer) => {
     console.log(`New client connected`);
 
     try {
-      // Al conectarse un nuevo cliente, se envían los productos actuales
       const products = await productManager.getProducts();
       console.log(products)
       socket.emit("currentProducts", products);

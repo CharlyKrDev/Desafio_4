@@ -44,8 +44,3 @@ function renderProductList(products) {
 const deleteProduct = (productId) => {
   socket.emit("deleteProduct", productId);
 };
-// const btnAdd = document.querySelector(".btnAdd");
-// btnAdd.addEventListener("click", () => {
-//   // Recarga la página para mostrar los productos más recientes
-//   window.location.reload();
-// });
