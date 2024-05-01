@@ -82,7 +82,6 @@ export class ProductManager {
       newProduct.id = newId;
       this.products.push(newProduct);
       this.writeProduct();
-      console.log(`El producto ha sido agregado correctamente`);
     } catch (error) {
       throw error;
     }

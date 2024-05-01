@@ -12,9 +12,7 @@ function renderProductList(products) {
   const productList = document.getElementById("productList");
   productList.innerHTML = "";
   try {
-    console.log("Listado de productos:");
     products.forEach((product) => {
-      console.log(product.title);
 
       const liProduct = document.createElement("ul");
       liProduct.innerHTML = ` 
@@ -44,3 +42,26 @@ function renderProductList(products) {
 const deleteProduct = (productId) => {
   socket.emit("deleteProduct", productId);
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('.formProduct');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const requiredFields = form.querySelectorAll('input[name="title"], input[name="description"], input[name="code"], input[name="price"], input[name="stock"], input[name="category"]');
+
+  function checkFields() {
+    let allFieldsFilled = true;
+    requiredFields.forEach(field => {
+      if (field.value.trim() === '') {
+        allFieldsFilled = false;
+      }
+    });
+
+    submitButton.disabled = !allFieldsFilled;
+  }
+
+  requiredFields.forEach(field => {
+    field.addEventListener('input', checkFields);
+  });
+
+  checkFields(); 
+});

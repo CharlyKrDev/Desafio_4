@@ -107,11 +107,17 @@ text-decoration: none;
 }
 
 .containerAdded {
-    width: 400px;
+    width: 200px;
     margin: 10px;
-    background-color: lightblue;
+    background-color: rgba(173, 216, 230, 0.808);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 10px;
+    text-wrap: wrap;
+    
     animation: fadeInOut 3s ease-in-out forwards;
     opacity: 0;
     visibility: hidden;

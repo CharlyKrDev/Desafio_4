@@ -10,7 +10,6 @@ export const socketConnection = (socketServer) => {
 
     try {
       const products = await productManager.getProducts();
-      console.log(products)
       socket.emit("currentProducts", products);
     } catch (error) {
       console.error("Error al enviar productos al cliente:", error);
@@ -29,7 +28,6 @@ export const socketConnection = (socketServer) => {
     });
 
     socket.on("deleteProduct", async (productId) => {
-      console.log(productId);
       try {
         const checkId = await productManager.checkProductId(productId);
         if (!checkId) {
