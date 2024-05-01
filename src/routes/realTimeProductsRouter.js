@@ -29,8 +29,6 @@ realTimeProductsRouter.get("/home", async (req, res) => {
   }
 });
 
-
-
 realTimeProductsRouter.get("/realTimeProducts", (req, res)=>{
 
   res.render('realTimeProducts',{
@@ -40,34 +38,4 @@ realTimeProductsRouter.get("/realTimeProducts", (req, res)=>{
   })
 })
 
-realTimeProductsRouter.post("/realTimeProducts", async (req, res) => {
-  const {
-    title,
-    description,
-    code,
-    price,
-    status,
-    stock,
-    category,
-    thumbnail,
-  } = req.body;
-  const newProduct = req.body;
-  try {
-    await productManager.addProduct(newProduct);
-
-    let producto =[]
-    producto.push(newProduct)
-
-    res.render('realTimeProducts',{
-      style:'style.css',
-      producto,
-      isAdded: producto.length > 0
-
-    });
-
-  } catch (error) {
-
-    res.status(500).send({ error: error.message });
-  }
-})
 

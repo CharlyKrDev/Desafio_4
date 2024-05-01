@@ -8,6 +8,10 @@ socket.on("updateProducts", async function (products) {
   renderProductList(products);
 });
 
+socket.on("addProduct", async function (products) {
+  renderProductList(products);
+});
+
 function renderProductList(products) {
   const productList = document.getElementById("productList");
   productList.innerHTML = "";
@@ -42,6 +46,42 @@ function renderProductList(products) {
 const deleteProduct = (productId) => {
   socket.emit("deleteProduct", productId);
 };
+
+
+
+document.getElementById('formSection').addEventListener('submit', function(e) {
+  e.preventDefault()
+  const title = document.getElementById('title').value
+  const description = document.getElementById('description').value
+  const code = document.getElementById('code').value
+  const price = document.getElementById('price').value
+  const status = document.getElementById('status').value
+  const stock = document.getElementById('stock').value
+  const category = document.getElementById('category').value
+  const thumbnail = document.getElementById('thumbnail').value
+  socket.emit('addProduct', { 
+      title: title, 
+      description: description,
+      code:code,       
+      price: price,
+      status:status,
+      stock:stock,
+      category:category ,
+      thumbnail: thumbnail
+      })
+  document.getElementById('title').value = ''
+  document.getElementById('description').value = ''
+  document.getElementById('code').value = ''
+  document.getElementById('price').value = ''
+  document.getElementById('status').value = ''
+  document.getElementById('stock').value = ''
+  document.getElementById('category').value = ''
+  document.getElementById('thumbnail').value = ''
+})
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('.formProduct');

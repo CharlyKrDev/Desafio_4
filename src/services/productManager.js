@@ -69,10 +69,11 @@ export class ProductManager {
 
       }
 
-   
+      newProduct.thumbnail = [];
+
       if (!thumbnail) {
         newProduct.thumbnail = [];
-      }
+      }  newProduct.thumbnail.push(thumbnail)  
 
       const lastId =
         this.products.length > 0

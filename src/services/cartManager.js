@@ -51,7 +51,6 @@ export class CartManager {
       await this.readCart();
       const lastId =
         this.carts.length > 0 ? this.carts[this.carts.length - 1].id : 0;
-      console.log(lastId);
       const newId = lastId + 1;
       const cartWithId = {
         id: newId,
@@ -59,7 +58,6 @@ export class CartManager {
       };
       this.carts.push(cartWithId);
       this.writeCart();
-      console.log(`Carrito creado`);
       return newCart;
     } catch (error) {
       console.error(`Problemas al agregar el producto al carrito`, error);
@@ -72,7 +70,7 @@ export class CartManager {
       await this.readCart();
       const encontrarCarritoId = this.carts.find((cart) => cart.id === cartId);
       return !encontrarCarritoId
-        ? console.log(`NOT FOUND: El producto con ID: ${cartId} no existe`)
+        ? console.error(`NOT FOUND: El producto con ID: ${cartId} no existe`)
         : encontrarCarritoId;
     } catch (error) {
       console.error(`Error al consultar productos`, error);

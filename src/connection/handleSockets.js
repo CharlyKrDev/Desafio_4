@@ -16,9 +16,9 @@ export const socketConnection = (socketServer) => {
       socket.emit("error", { message: "Error al procesar la solicitud" });
     }
 
-    socket.on("addProduct", async (product) => {
+    socket.on("addProduct", async (newProduct) => {
       try {
-        await productManager.addProduct(product);
+        await productManager.addProduct(newProduct);
         const updatedProducts = await productManager.getProducts();
         socketServer.emit("updateProducts", updatedProducts);
       } catch (error) {
@@ -29,11 +29,6 @@ export const socketConnection = (socketServer) => {
 
     socket.on("deleteProduct", async (productId) => {
       try {
-        const checkId = await productManager.checkProductId(productId);
-        if (!checkId) {
-          console.log(`Producto con ID: ${productId} no existe`);
-          return;
-        }
 
         await productManager.deleteProduct(productId);
         const updatedProducts = await productManager.getProducts();
